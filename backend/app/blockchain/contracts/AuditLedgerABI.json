@@ -1,0 +1,325 @@
+[
+  {
+    "inputs": [],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "anchorer",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "bool",
+        "name": "status",
+        "type": "bool"
+      }
+    ],
+    "name": "AnchorerUpdated",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "string",
+        "name": "eventId",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "eventType",
+        "type": "string"
+      },
+      {
+        "indexed": true,
+        "internalType": "string",
+        "name": "userId",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "recordHash",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "timestamp",
+        "type": "uint256"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "anchoredBy",
+        "type": "address"
+      }
+    ],
+    "name": "AuditEventAnchored",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "previousOwner",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "newOwner",
+        "type": "address"
+      }
+    ],
+    "name": "OwnershipTransferred",
+    "type": "event"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "name": "authorizedAnchorers",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "eventId",
+        "type": "string"
+      }
+    ],
+    "name": "getAuditEvent",
+    "outputs": [
+      {
+        "internalType": "string",
+        "name": "id",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "eventType",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "userId",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "recordHash",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "metadataUri",
+        "type": "string"
+      },
+      {
+        "internalType": "uint256",
+        "name": "timestamp",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "blockNumber",
+        "type": "uint256"
+      },
+      {
+        "internalType": "address",
+        "name": "anchoredBy",
+        "type": "address"
+      },
+      {
+        "internalType": "bool",
+        "name": "exists",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getEventCount",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "index",
+        "type": "uint256"
+      }
+    ],
+    "name": "getEventIdByIndex",
+    "outputs": [
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "owner",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "eventId",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "eventType",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "userId",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "recordHash",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "metadataUri",
+        "type": "string"
+      }
+    ],
+    "name": "recordAuditEvent",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "anchorer",
+        "type": "address"
+      },
+      {
+        "internalType": "bool",
+        "name": "status",
+        "type": "bool"
+      }
+    ],
+    "name": "setAuthorizedAnchorer",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "newOwner",
+        "type": "address"
+      }
+    ],
+    "name": "transferOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "eventId",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "claimedHash",
+        "type": "string"
+      }
+    ],
+    "name": "verifyEventHash",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "isValid",
+        "type": "bool"
+      },
+      {
+        "internalType": "string",
+        "name": "storedHash",
+        "type": "string"
+      },
+      {
+        "internalType": "uint256",
+        "name": "timestamp",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "blockNumber",
+        "type": "uint256"
+      },
+      {
+        "internalType": "address",
+        "name": "anchoredBy",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  }
+]

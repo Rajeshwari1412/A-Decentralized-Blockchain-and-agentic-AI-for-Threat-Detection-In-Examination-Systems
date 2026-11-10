@@ -1,0 +1,63 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: examsentinel-postgres
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: sentinel_secure_password
+      POSTGRES_DB: examsentinel
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  hardhat-node:
+    image: node:20-alpine
+    container_name: examsentinel-blockchain
+    working_dir: /app
+    volumes:
+      - ./blockchain:/app
+    command: sh -c "npm install && npx hardhat node --hostname 0.0.0.0"
+    ports:
+      - "8545:8545"
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: examsentinel-backend
+    restart: always
+    environment:
+      - DATABASE_URL=postgresql://postgres:sentinel_secure_password@postgres:5432/examsentinel
+      - BLOCKCHAIN_RPC_URL=http://hardhat-node:8545
+      - SECRET_KEY=examsentinel-super-secret-production-grade-jwt-key-change-in-prod
+      - ISOLATION_FOREST_CONTAMINATION=0.08
+    ports:
+      - "8000:8000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      hardhat-node:
+        condition: service_started
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: examsentinel-frontend
+    restart: always
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+
+volumes:
+  pgdata:

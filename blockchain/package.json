@@ -1,0 +1,16 @@
+{
+  "name": "examsentinel-blockchain",
+  "version": "1.0.0",
+  "description": "Blockchain smart contracts for ExamSentinel AI insider threat audit ledger",
+  "main": "index.js",
+  "scripts": {
+    "compile": "hardhat compile",
+    "test": "hardhat test",
+    "node": "hardhat node",
+    "deploy:local": "hardhat run scripts/deploy.js --network localhost"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^4.0.0",
+    "hardhat": "^2.22.2"
+  }
+}
