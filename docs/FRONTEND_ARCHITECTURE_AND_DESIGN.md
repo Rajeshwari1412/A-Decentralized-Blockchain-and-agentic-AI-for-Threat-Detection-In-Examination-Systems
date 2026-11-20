@@ -165,3 +165,4 @@ When presenting the frontend during your project evaluation, use this structured
 
 3. **Demonstrating the Threat Simulator & Blockchain Verifier:**
    *"To prove our system works to evaluators, we engineered an interactive Threat Simulator and a Blockchain Tamper Verifier. In 2 clicks, any evaluator can test an attack scenario and verify that the blockchain detects unauthorized data changes."*
+
