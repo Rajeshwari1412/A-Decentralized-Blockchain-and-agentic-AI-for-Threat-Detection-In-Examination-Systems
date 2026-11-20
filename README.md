@@ -144,6 +144,7 @@ The framework unites:
 │   ├── 4. STAGE-1 FINAL DOCUMENT SAMPLE CSE.docx # Stage-1 Comprehensive Report
 │   ├── STAGE_1_DOCUMENTATION.md             # Complete Academic Documentation
 │   ├── SYSTEM_ARCHITECTURE.md               # Detailed Architecture Specification
+│   ├── FRONTEND_ARCHITECTURE_AND_DESIGN.md  # Complete Frontend & System Design Docs
 │   └── AGENTIC_AI_SPECIFICATION.md          # 7-Agent Orchestrator & ML Specs
 ├── backend/                                 # FastAPI Backend Service
 │   ├── app/
